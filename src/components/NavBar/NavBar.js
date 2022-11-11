@@ -4,7 +4,7 @@ import { UserData } from "../../context/userData";
 import { getAuth, signOut } from "firebase/auth";
 
 const NavBar = () => {
-  const userLog = useContext(UserData);
+  const {userLog} = useContext(UserData);
 
   const auth = getAuth();
   const logOut = () => {
@@ -28,7 +28,7 @@ const NavBar = () => {
         </li>
       </ul>
       <button onClick={logOut}>Log Out</button>
-      {userLog === true ? <div>Estas loggeado</div> : <div>"no estas loggeado"</div>}
+      {userLog ? (<div>Estas loggeado</div>) : (<div>"no estas loggeado"</div>)}
     </>
   );
 };
